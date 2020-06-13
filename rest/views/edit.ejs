@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit</title>
+</head>
+<body>
+  <form action="/edit-save" method="post">
+<% if(data.length){
+  for(var i = 0; i < data.length; i++) { %>
+    <tr>
+    Name:
+        <input type="text" id="name" name="data[name]" value="<%=data[i].name%>" ><br><br>
+    Address:
+          <input type="text" id="address" name="data[address]" value="<%=data[i].address%>" ><br><br>
+    Email:
+          <input type="text" id="email" name="data[email]" value="<%=data[i].email%>" ><br><br> 
+    Phone:
+          <input type="text" id="phone" name="data[phone]" value="<%=data[i].phone%>" ><br><br>      
+           <input type="hidden" id="id" name="id" value="<%=id%>">
+          <input type="submit" value="submit">
+    </form> 
+    <form action="/cancel" method="post">
+      <input type="submit" value="Cancel">
+    </form>
+    </tr>
+  <% }
+}else{ %>
+
+<tr>
+<td colspan="6">No user</td>
+<br><br> <form action="/cancel" method="post">
+  <input type="submit" value="Cancel">
+</form>
+</tr>
+<% } %>
+
+</body>
+</html>

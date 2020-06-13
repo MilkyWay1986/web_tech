@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%=title%></title>
+
+
+</head>
+
+<h2><%=title%></h2>
+
+
+<a class="add" href="../add">+ Add new Student</a>
+
+
+<table class="center">
+<tr>
+<th width="50px">No</th>
+<th>Name</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Email</th>
+<th width="120px">Action</th>
+</tr>
+
+<% if(data.length){
+for(var i = 0;i < data.length;i++) { %>
+<tr>
+<td><br><%=(i+1)%><br></td>
+<td><br><%=data[i].name%><br></td>
+<td><br><%=data[i].address%><br></td>
+<td><br><%=data[i].phone%><br></td>
+<td><br><%=data[i].email%><br></td>
+<td>
+<a class="edit" href="../edit/<%=data[i].id%>">Edit</a>
+<a class="delete" href="../delete/<%=data[i].id%>">Delete</a>
+</td>
+</tr>
+<% }
+}else{ %>
+<tr>
+<td colspan="6">No user</td>
+</tr>
+<% } %>
+</table>
+
+</body>
+</html>
